@@ -5,6 +5,16 @@ import javafx.scene.canvas.GraphicsContext;
 
 import java.util.ArrayList;
 
+//***********************************
+// Ryan Hughes
+//
+// This class represents a player. It gives most of
+// the functionality for the player, but lets the
+// children define the takeTurn and draw methods.
+// The player holds the board and boneyard and makes
+// calls to display all of the visual elements
+//***********************************
+
 public abstract class Player
 {
   protected ArrayList<Domino> hand;
@@ -12,6 +22,12 @@ public abstract class Player
   protected Board board;
   protected PlayerDisplay display;
 
+  /**
+   * Constructor
+   * @param bones the boneyard that will be used
+   * @param board the board that will be used
+   * @param gc the GraphicsContext used by all the visual elements to paint on the canvas
+   */
   public Player(Boneyard bones, Board board, GraphicsContext gc)
   {
     this.bones = bones;
@@ -21,9 +37,9 @@ public abstract class Player
   }
 
   public abstract void takeTurn();
+  public abstract void draw();
 
   public Domino play(int d) { return hand.remove(d); }
-  public abstract void draw();
   public void draw(Domino d) {hand.add(d);}
 
   public void printHand(int player)

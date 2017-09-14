@@ -4,6 +4,13 @@ import Dominoes.Display;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+//***********************************
+// Ryan Hughes
+//
+// This class handles the display of the boneyard
+// on the canvas.
+//***********************************
+
 public class BoneyardDisplay
 {
   private GraphicsContext gc;

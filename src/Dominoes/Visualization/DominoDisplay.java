@@ -7,6 +7,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
+//***********************************
+// Ryan Hughes
+//
+// This class takes care of all the logic to display
+// a single domino. It holds two images for the left
+// and right sides of the domino and paints the domino
+// at the given coordinates when display is called
+//***********************************
+
 public class DominoDisplay
 {
   private GraphicsContext gc;
@@ -53,10 +62,14 @@ public class DominoDisplay
    * to scale the size of the domino. This scaling factor currently works for the dominoes,
    * but it was not fully implemented on the board in the time given so it is not used
    * any where in the program
-   * @param x
-   * @param y
-   * @param player
-   * @param pickedUp
+   * @param x the x coordinate at which the Domino will be displayed
+   * @param y the y coordinate at which the Domino will be displayed
+   * @param player an int denoting which player this domino belongs to,
+   *               player 1 will display the dominoes face up, any other
+   *               player will have their dominoes displayed face down
+   * @param pickedUp a boolean denoting whether the domino is currently in
+   *                 the air, a value of true will display a shadow around
+   *                 the domino, making it look picked up
    * @param scalingFactor
    */
   public void display(int x, int y, int player, boolean pickedUp, double scalingFactor)

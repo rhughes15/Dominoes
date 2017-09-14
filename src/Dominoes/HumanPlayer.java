@@ -2,12 +2,22 @@ package Dominoes;
 
 import javafx.scene.canvas.GraphicsContext;
 
-import java.util.Scanner;
+//***********************************
+// Ryan Hughes
+//
+// This class was used in the initial implementation to
+// handle the player's turn, but that functionality is
+// now implemented elsewhere so it only handles the
+// human player's drawing dominoes from the boneyard
+//***********************************
 
 public class HumanPlayer extends Player
 {
   public HumanPlayer(Boneyard bones, Board board, GraphicsContext gc){super(bones, board, gc); }
 
+  /**
+   * was necessary to override, but adds no functionality
+   */
   public void takeTurn()
   {
     // This is an abstract method that needs to be
@@ -16,6 +26,10 @@ public class HumanPlayer extends Player
     // human player.
   }
 
+  /**
+   * This method handles the logic of the human player drawing
+   * from the boneyard
+   */
   public void draw()
   {
     Domino draw = bones.getDomino();

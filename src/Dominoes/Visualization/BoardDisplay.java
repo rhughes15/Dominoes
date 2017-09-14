@@ -7,6 +7,16 @@ import javafx.scene.paint.Color;
 
 import java.util.Deque;
 
+//***********************************
+// Ryan Hughes
+//
+// This class is used to visually display the Board.
+// It draws on the canvas that utilizes the GraphicsContext
+// it receives in the constructor. It displays two yellow
+// rectangles where the player can play and displays the
+// dominoes in two rows as specified in the problem
+//***********************************
+
 public class BoardDisplay
 {
   private GraphicsContext gc;

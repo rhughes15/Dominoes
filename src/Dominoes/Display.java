@@ -2,6 +2,13 @@ package Dominoes;
 
 import javafx.scene.paint.Color;
 
+//***********************************
+// Ryan Hughes
+//
+// This class acts as a global reference class with all of
+// the values that will be used by the gui to paint the game
+//***********************************
+
 public class Display
 {
   public static final int SCREEN_WIDTH = 800;

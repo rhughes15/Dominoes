@@ -2,15 +2,23 @@ package Dominoes;
 
 import javafx.scene.canvas.GraphicsContext;
 
+//***********************************
+// Ryan Hughes
+//
+// This class contains the logic for the computer player.
+//***********************************
 public class ComputerPlayer extends Player
 {
   public ComputerPlayer(Boneyard bones, Board board, GraphicsContext gc)
   { super(bones, board, gc); }
 
-  // current ai:
-  // if it can play on the left, it will
-  // if not, and it can play on the right, it will
-  // if not, it will draw and start the process over
+  /**
+   * This method contains the logic for the computer player.
+   * If the computer player can play on the left, it will.
+   * If not, and it can play on the right, it will play there.
+   * If it can not play on either side, it will draw a domino
+   * and start again.
+   */
   @Override
   public void takeTurn()
   {
@@ -34,6 +42,10 @@ public class ComputerPlayer extends Player
     display.update(hand, 2);
   }
 
+  /**
+   * This method overrides the player's abstract draw method.
+   * It handles the logic of drawing a domino for the computer.
+   */
   public void draw()
   {
     Domino draw = bones.getDomino();

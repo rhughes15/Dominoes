@@ -6,11 +6,25 @@ import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
+//***********************************
+// Ryan Hughes
+//
+// This class handles the creation of all dominoes for
+// the game and holds all the extras that are not currently
+// in either player's hand. getDomino should be used to draw
+// dominoes during the game
+//***********************************
 public class Boneyard
 {
   private ArrayList<Domino> boneyard;
   private BoneyardDisplay display;
 
+  /**
+   * The constructor creates all the dominoes that
+   * will be used in the game
+   * @param gc the GraphicsContext that will be used by the
+   *           BoneyardDisplay to display the boneyard
+   */
   public Boneyard(GraphicsContext gc)
   {
     display = new BoneyardDisplay(gc);
@@ -22,6 +36,10 @@ public class Boneyard
         boneyard.add(new Domino(0, 0, i, j, gc, pics[i], pics[j]));
   }
 
+  /**
+   * This method should be used to "draw" dominoes during the game
+   * @return a random domino from the boneyard
+   */
   public Domino getDomino()
   {
     if(!boneyard.isEmpty()) return boneyard.remove((int)(Math.random() * boneyard.size()));

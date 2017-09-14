@@ -4,6 +4,13 @@ import Dominoes.Visualization.DominoDisplay;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+//***********************************
+// Ryan Hughes
+//
+// This class handles the internal, logical representation
+// of the dominoes that are used to play the game
+//***********************************
+
 public class Domino
 {
     private int leftNum;
@@ -22,6 +29,13 @@ public class Domino
       display = new DominoDisplay(gc, leftImage, rightImage);
     }
 
+  /**
+   * This method is overridden so that the Dominoes can be used
+   * in complex data structures
+   * @param obj the domino to compare to this
+   * @return true if the dominoes have the same values, regardless
+   * of order
+   */
     @Override
     public boolean equals(Object obj)
     {
@@ -34,8 +48,10 @@ public class Domino
         return false;
     }
 
-    // reverses the domino
-    public void flip()
+  /**
+   * This method reverses the order of the numbers on the domino.
+   */
+  public void flip()
     {
       int tempNum = leftNum;
       leftNum = rightNum;
@@ -46,8 +62,27 @@ public class Domino
     public int getLeft() {return leftNum;}
     public int getRight() {return rightNum;}
 
-    public void display(int player)
+  /**
+   * This method is used to display the domino at its
+   * current x and y coordinates
+   * @param player 1 will display the domino face up, anything
+   *               else will display it face down
+   */
+  public void display(int player)
     {display.display(x, y, player, pickedUp);}
+
+  /**
+   * This method is just like the other display method, but
+   * it adds the capability of using a scaling factor to scale the
+   * size of the dominoes. This works for individual dominoes, but
+   * was not debugged well enough by the deadline to be implemented on
+   * the board.
+   * @param player 1 will display the domino face up, anything
+   *               else will display it face down
+   * @param scalingFactor a double from 0 to 1 representing the
+   *                      percentage of the original size of the domino
+   *                      to scale the domino to. 0 = 0%, 1 = 100%
+   */
     public void display(int player, double scalingFactor)
     {display.display(x, y, player, pickedUp, scalingFactor);}
 

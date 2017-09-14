@@ -5,6 +5,13 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.Scanner;
 
+//***********************************
+// Ryan Hughes
+//
+// This class handles the management of all the lower classes
+// and organizes the running of the game
+//***********************************
+
 public class Controller
 {
 
@@ -14,16 +21,22 @@ public class Controller
 
   private Scanner in = new Scanner(System.in); //used for early  text testing
 
-  // constructor makes the calls to initialize all
-  // the necessary variables, deals the first hand,
-  // then starts the game
+  /**
+   * The constructor makes the method calls to initialize
+   * the necessary variables and deal the initial hand
+   * @param gc the GraphicsContext that will be passed to all
+   *           visualization classes used to draw on the canvas
+   */
   public Controller(GraphicsContext gc)
   {
     init(gc);
     deal();
   }
 
-  // initializes all the necessary variables
+  /**
+   * initializes all the necessary variables to start the game
+   * @param gc the GraphicsContext passed to all visualization classes
+   */
   private void init(GraphicsContext gc)
   {
     Boneyard boneyard = new Boneyard(gc);
@@ -35,9 +48,11 @@ public class Controller
     playerTurn = true;
   }
 
-  // deals dominos one at a time to each player until they
-  // both have the INITIAL_HAND_SIZE, then displays
-  // all of the gui elements and calls run to start the game
+  /**
+   * This method deals dominos one at a time to each player until they
+   * both have the INITIAL_HAND_SIZE, then displays all of the gui
+   * elements
+   */
   private void deal()
   {
     for(int i = 0; i < Display.INITIAL_HAND_SIZE; i++)
@@ -51,8 +66,11 @@ public class Controller
     player1.printBones();
   }
 
-  // handles the main game organization, called
-  // after every turn
+  /**
+   * this method organizes the flow of the turns and
+   * controls the game, checking for end state conditions
+   * and ending the game when necessary
+   */
   public void run()
   {
     if(gameOver()) end(player1.getGC());
@@ -65,11 +83,14 @@ public class Controller
     if(gameOver()) end(player1.getGC());
   }
 
-  // Gives the winner at the end of the game and
-  // asks the player if they would like to play again.
-  // If they do, reinitializes to clear out the old variables,
-  // deals a new hand to each player, the starts the new game.
-  // If they dont, does nothing.
+  /**
+   * This method was supposed to reinitialize all the variables and start
+   * a new game. It currently does not work and due to time constraints, will
+   * only display a message in the console when the game is over and prompt for
+   * input that doesn't do anything
+   * @param gc the GraphicsContext that is supposed to be passed to the
+   *           new instances of the game objects
+   */
   private void end(GraphicsContext gc)
   {
     if(computerWins) System.out.println("Computer Wins!");
@@ -84,8 +105,10 @@ public class Controller
     }
   }
 
-  // simple method to determine if the game is over,
-  // used in the main game loop.
+  /**
+   * This method checks to see if the game is over
+   * @return true if the game is over, false if not
+   */
   private boolean gameOver()
   {
     if(player1.isEmpty()) { return true; }
@@ -94,6 +117,11 @@ public class Controller
     return false;
   }
 
+  /**
+   * This method passes along the event handling information
+   * to the PlayerListener
+   * @param event the mouse event that occurred
+   */
   public void handlePress(MouseEvent event)
   {
     if(playerTurn)
@@ -102,6 +130,11 @@ public class Controller
     }
   }
 
+  /**
+   * This method passes along the event handling information
+   * to the PlayerListener
+   * @param event the mouse event that occurred
+   */
   public void handleDrag(MouseEvent event)
   {
     if(playerTurn)
@@ -110,6 +143,11 @@ public class Controller
     }
   }
 
+  /**
+   * This method passes along the event handling information
+   * to the PlayerListener
+   * @param event the mouse event that occurred
+   */
   public void handleRelease(MouseEvent event)
   {
     if(playerTurn)
