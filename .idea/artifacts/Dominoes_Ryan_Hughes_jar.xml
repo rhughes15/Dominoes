@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Dominoes_Ryan_Hughes.jar">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="archive" name="Dominoes.jar">
+      <element id="module-output" name="Dominoes" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src" />
+    </root>
+  </artifact>
+</component>
