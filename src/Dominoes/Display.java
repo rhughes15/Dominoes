@@ -25,5 +25,5 @@ public class Display
   public static final int BONEYARD_Y = (SCREEN_HEIGHT / 2) - (95 / 2) - 80;
   public static final int BONEYARD_WIDTH = 233;
   public static final int BONEYARD_HEIGHT = 95;
-  public static final Color BACKGROUND_COLOR = Color.BLACK;
+  public static final Color BACKGROUND_COLOR = Color.WHITE;
 }
